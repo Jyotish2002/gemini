@@ -79,7 +79,7 @@ def dalle3_text_to_image(prompt, providers="openai/dall-e-3"):
 
 # Set page title and icon
 st.set_page_config(
-    page_title="VisionaryAI",
+    page_title="Tech AI",
     page_icon="🧠",
     layout="centered",
     initial_sidebar_state="expanded"
@@ -87,10 +87,10 @@ st.set_page_config(
 
 with st.sidebar:
     user_picked = option_menu(
-        "VisionaryAI",
+        "Tech AI",
         ["ChatBot", "Image Captioning", "Text to Image"],
         menu_icon="robot",
-        icons = ["chat-dots-fill", "image-fill", "brush-fill"],
+        icons=["chat-dots-fill", "image-fill", "brush-fill"],
         default_index=0
     )
 
@@ -106,9 +106,9 @@ if user_picked == 'ChatBot':
     if "chat_history" not in st.session_state:
         st.session_state['chat_history'] = model.start_chat(history=[])
 
-    st.title("🤖TalkBot")
+    st.title("🤖 TalkBot")
 
-    #Display the chat history
+    # Display the chat history
     for message in st.session_state.chat_history.history:
         with st.chat_message(roleForStreamlit(message.role)):    
             st.markdown(message.parts[0].text)
@@ -127,7 +127,7 @@ if user_picked == 'ChatBot':
 elif user_picked == 'Image Captioning':
     model = gemini_vision()
 
-    st.title("🖼️Image Captioning")
+    st.title("🖼️ Image Captioning")
 
     image = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
 
